@@ -35,7 +35,7 @@ async function streamTweets(hashTag: string) {
     stream.autoReconnect = true;
 
     stream.on(ETwitterStreamEvent.Data, async tweet => {
-      await axios.put(process.env.streamTweetsApi as string, tweet);
+      await axios.put(process.env.MonitorTweetsApi as string, tweet);
       console.log(JSON.stringify(tweet, null, 2));
     });
   } catch (e) {
